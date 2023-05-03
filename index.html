@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Minimap2</title>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/carte.css" rel="stylesheet">
+
+    <meta name="theme-color" content="#7952b3">
+
+
+</head>
+<body class="bg-light">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
+        <div class="container-fluid">
+            <h1 class="navbar-brand">Regular gap size for Minimap2</h1>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <div class="row ">
+            <div class="col-sm-3 p-3 ">
+                <button type="button" class="btn btn-primary" onclick="run()">Generate</button>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-sm-12 mb-3 mt-3 bg-white">
+                <p>This webpage illustrates the chaining section of the article <a href="https://www.biorxiv.org/content/10.1101/2022.05.21.492932v1"><em>A survey of mapping algorithms in the long-reads era</em> by Sahlin et al.</a></p>
+                <p>Two sequences (for instance a read on the Y axis and a reference genome on the X axis) share k-mers or more generally subsequences called anchors.</p>
+                <p>In our example, anchors are represented using dots. The chaining step of long read mappers aims at retrieving the best chain according to a score function.</p>
+                <p>We present examples voluntarily simple, but with secondary chains and some noise. The best score chained has a different color. The chain's score is computed using the different anchors' scores, that can be displayed by ticking "<label class="form-check-label" for="seevalue" style="cursor:pointer">See scores</label>".</p>
+                <p>One can test the effect of the different parameters in the score function for anchor chaining as used e.g. in minimap 2 (Li et al. 2018): <label for="sizemers" class="form-label" style="cursor:pointer">Size of k-mers</label>, <label for="windows" class="form-label" style="cursor:pointer">Max gap size (G)</label>, and the two parameters of the gap function (<label for="param1" class="form-label" style="cursor:pointer">Gap opening</label> and <label for="param2" class="form-label" style="cursor:pointer">Gap extension</label>).</p>
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <label for="sizemers" class="form-label">Size of k-mers</label>
+                <input type="number" class="form-control" name="sizemers" id="sizemers" value="20" onchange="compute()">
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <label for="windows" class="form-label">Max gap size (G)</label>
+                <input type="number" class="form-control" name="windows" id="windows" value="40" onchange="compute()">
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <label for="param1" class="form-label">Gap opening</label>
+                <input type="number" class="form-control" name="windows" id="param1" value="0.01" step="0.001" onchange="compute()">
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <label for="param2" class="form-label">Gap extension</label>
+                <input type="number" class="form-control" name="windows" id="param2" value="0.5" step="0.01" onchange="compute()">
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <input class="form-check-input" type="checkbox" id="linemers" name="darkmode" value="no" unchecked  onchange="compute()">
+                <label class="form-check-label" for="linemers">See lines of mers</label>
+            </div>
+            <div class="col-sm-3 mb-3 mt-3">
+                <input class="form-check-input" type="checkbox" id="seevalue" name="darkmode" value="no" unchecked  onchange="compute()">
+                <label class="form-check-label" for="seevalue" id="seevaluelabel">See scores</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 p-3 ">
+                <svg viewBox="0 0 1030 530" preserveAspectRatio="xMinYMin meet" id="mysvg" class="bg-white">
+                    Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+                </svg>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/generate.js"></script>
+
+</body>
+</html>
