@@ -32,10 +32,16 @@
             </div>
         </div>
         <div class="row align-items-center">
+            <!-- <div class="col-sm-3 mb-3 mt-3">
+                <label for="" class="form-label">Number of mers :</label>
+                <input type="number" class="form-control" name="nbkmers" id="nbkmers" value="500">
+            </div> -->
             <div class="col-sm-12 mb-3 mt-3 bg-white">
                 <p>This webpage illustrates the chaining section of the article <a href="https://www.biorxiv.org/content/10.1101/2022.05.21.492932v1"><em>A survey of mapping algorithms in the long-reads era</em> by Sahlin et al.</a></p>
+                <p>You can find the code of this website on GitHub (<a href="https://github.com/bastcazaux/minimap2_chaining_plot_web">https://github.com/bastcazaux/minimap2_chaining_plot_web</a>) and you can cite it directly with the Zenodo link (<a href="https://doi.org/10.5281/zenodo.7889434">https://doi.org/10.5281/zenodo.7889434</a>).</p>
                 <p>Two sequences (for instance a read on the Y axis and a reference genome on the X axis) share k-mers or more generally subsequences called anchors.</p>
                 <p>In our example, anchors are represented using dots. The chaining step of long read mappers aims at retrieving the best chain according to a score function.</p>
+
                 <p>We present examples voluntarily simple, but with secondary chains and some noise. The best score chained has a different color. The chain's score is computed using the different anchors' scores, that can be displayed by ticking "<label class="form-check-label" for="seevalue" style="cursor:pointer">See scores</label>".</p>
                 <p>One can test the effect of the different parameters in the score function for anchor chaining as used e.g. in minimap 2 (Li et al. 2018): <label for="sizemers" class="form-label" style="cursor:pointer">Size of k-mers</label>, <label for="windows" class="form-label" style="cursor:pointer">Max gap size (G)</label>, and the two parameters of the gap function (<label for="param1" class="form-label" style="cursor:pointer">Gap opening</label> and <label for="param2" class="form-label" style="cursor:pointer">Gap extension</label>).</p>
             </div>
@@ -64,6 +70,8 @@
                 <label class="form-check-label" for="seevalue" id="seevaluelabel">See scores</label>
             </div>
         </div>
+
+
         <div class="row">
             <div class="col-sm-12 p-3 ">
                 <svg viewBox="0 0 1030 530" preserveAspectRatio="xMinYMin meet" id="mysvg" class="bg-white">
@@ -75,8 +83,31 @@
 
     </main>
 
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/generate.js"></script>
+    <script>
+
+    </script>
+
 
 </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Titre</title>
+    </head>
+
+    <body>
+
+
+
+
+
+    </body>
 </html>
